@@ -1,5 +1,7 @@
 # Nonstop Agent
 
+**English** | [한국어](README.ko.md)
+
 **Long-running autonomous agent harness for Claude** - A framework for building autonomous agents that work continuously across multiple sessions.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -33,6 +35,8 @@ This project is inspired by and built upon:
 
 ## Installation
 
+### Option 1: As a Python Package
+
 ```bash
 # Using uv (recommended)
 uv add nonstop-agent
@@ -40,6 +44,26 @@ uv add nonstop-agent
 # Or using pip
 pip install nonstop-agent
 ```
+
+### Option 2: As a Claude Code Skill
+
+You can also install this as a Claude Code Skill for interactive use:
+
+```bash
+# Clone the repository
+git clone https://github.com/atoye1/nonstop-agent.git
+
+# Copy the skill to Claude Code skills directory
+cp -r nonstop-agent/skill ~/.claude/skills/nonstop-agent
+
+# Or create a symbolic link (recommended for development)
+ln -s $(pwd)/nonstop-agent/skill ~/.claude/skills/nonstop-agent
+```
+
+After installation, you can invoke the skill in Claude Code:
+- "롱 러닝 에이전트 만들어줘"
+- "Create an autonomous coding agent"
+- "Build a long-running agent harness"
 
 ## Quick Start
 
@@ -79,7 +103,7 @@ uv run nonstop-agent --project-dir ./my_project --resume
 
 ```
 --project-dir PATH      Directory for the project (default: ./project)
---model MODEL           Claude model to use (default: claude-sonnet-4-5-20250929)
+--model MODEL           Claude model to use (default: claude-opus-4-5-20251101)
 --max-iterations N      Maximum number of iterations (default: unlimited)
 --analyze-first         Analyze existing project before starting
 --resume                Resume from the last session
@@ -164,7 +188,7 @@ from nonstop_agent import run_autonomous_agent
 asyncio.run(
     run_autonomous_agent(
         project_dir=Path("./my_project"),
-        model="claude-sonnet-4-5-20250929",
+        model="claude-opus-4-5-20251101",
         max_iterations=10,
         analyze_first=True,
     )

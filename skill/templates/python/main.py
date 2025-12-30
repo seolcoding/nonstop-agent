@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 """
-Nonstop Agent - Main Entry Point
-=================================
+Autonomous Agent - Main Entry Point
+====================================
 
-Long-running autonomous agent that works continuously across sessions.
+{{AGENT_DESCRIPTION}}
 
 Usage:
     # New project
-    uv run nonstop-agent --project-dir ./my_project
+    uv run python main.py --project-dir ./my_project
 
     # Existing project (analyze first)
-    uv run nonstop-agent --project-dir ./existing --analyze-first
+    uv run python main.py --project-dir ./existing --analyze-first
 
     # Resume last session
-    uv run nonstop-agent --project-dir ./my_project --resume
+    uv run python main.py --project-dir ./my_project --resume
 
     # Limit iterations
-    uv run nonstop-agent --project-dir ./my_project --max-iterations 5
+    uv run python main.py --project-dir ./my_project --max-iterations 5
 
 Reference:
 - https://platform.claude.com/docs/en/agent-sdk/overview
@@ -28,17 +28,17 @@ import asyncio
 import os
 from pathlib import Path
 
-from .agent import run_autonomous_agent
+from agent import run_autonomous_agent
 
 
 # Configuration
-DEFAULT_MODEL = "claude-opus-4-5-20251101"
+DEFAULT_MODEL = "{{MODEL}}"  # claude-opus-4-5-20251101
 
 
 def parse_args() -> argparse.Namespace:
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(
-        description="Nonstop Agent - Long-running autonomous coding agent",
+        description="{{AGENT_DESCRIPTION}}",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
@@ -75,13 +75,6 @@ def parse_args() -> argparse.Namespace:
         help="Resume from the last session (uses saved session ID)",
     )
 
-    parser.add_argument(
-        "--system-prompt",
-        type=str,
-        default=None,
-        help="Custom system prompt for the agent",
-    )
-
     return parser.parse_args()
 
 
@@ -89,13 +82,13 @@ def main() -> None:
     """Main entry point."""
     args = parse_args()
 
-    # Check for authentication
-    oauth_token = os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")
-    if not oauth_token:
-        print("Note: CLAUDE_CODE_OAUTH_TOKEN not set.")
-        print("  The SDK will use existing Claude Code CLI authentication.")
-        print("  If authentication fails, run: claude login")
-        print()
+    # Check for API key
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        print("Error: ANTHROPIC_API_KEY environment variable not set")
+        print("\nGet your API key from: https://console.anthropic.com/")
+        print("\nThen set it:")
+        print("  export ANTHROPIC_API_KEY='your-api-key-here'")
+        return
 
     # Run the agent
     try:
@@ -106,7 +99,6 @@ def main() -> None:
                 max_iterations=args.max_iterations,
                 analyze_first=args.analyze_first,
                 resume=args.resume,
-                system_prompt=args.system_prompt,
             )
         )
     except KeyboardInterrupt:
