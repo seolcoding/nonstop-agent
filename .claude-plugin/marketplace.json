@@ -1,0 +1,30 @@
+{
+  "name": "nonstop-agent-marketplace",
+  "owner": {
+    "name": "seolcoding",
+    "url": "https://github.com/seolcoding"
+  },
+  "description": "Marketplace for Nonstop Agent - Long-running autonomous agent harness for Claude",
+  "plugins": [
+    {
+      "name": "nonstop-agent",
+      "source": ".",
+      "description": "Generate 24/7 autonomous coding agents with Anthropic best practices. Supports Korean and English.",
+      "version": "1.0.0",
+      "author": {
+        "name": "seolcoding"
+      },
+      "homepage": "https://github.com/seolcoding/nonstop-agent",
+      "repository": "https://github.com/seolcoding/nonstop-agent",
+      "license": "MIT",
+      "keywords": [
+        "autonomous-agent",
+        "long-running",
+        "coding-agent",
+        "24/7",
+        "롱러닝",
+        "자율에이전트"
+      ]
+    }
+  ]
+}

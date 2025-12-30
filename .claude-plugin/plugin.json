@@ -1,0 +1,22 @@
+{
+  "name": "nonstop-agent",
+  "version": "1.0.0",
+  "description": "Long-running autonomous agent harness for Claude - Generate 24/7 coding agents with Anthropic best practices",
+  "author": {
+    "name": "seolcoding"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/seolcoding/nonstop-agent",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seolcoding/nonstop-agent.git"
+  },
+  "keywords": [
+    "autonomous-agent",
+    "long-running",
+    "coding-agent",
+    "claude-agent-sdk",
+    "24/7",
+    "nonstop"
+  ]
+}

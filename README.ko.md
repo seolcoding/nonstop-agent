@@ -45,26 +45,33 @@ uv add nonstop-agent
 pip install nonstop-agent
 ```
 
-### 옵션 2: Claude Code Skill로 설치
+### 옵션 2: Claude Code 플러그인으로 설치 (권장)
 
-Claude Code에서 대화형으로 사용할 수 있는 Skill로도 설치 가능합니다:
+Claude Code에서 마켓플레이스를 통해 직접 설치:
+
+```bash
+# 마켓플레이스 추가
+/plugin marketplace add seolcoding/nonstop-agent
+
+# 플러그인 설치
+/plugin install nonstop-agent@seolcoding/nonstop-agent
+```
+
+또는 수동 설치:
 
 ```bash
 # 레포지토리 클론
 git clone https://github.com/seolcoding/nonstop-agent.git
 
-# skill 디렉토리를 Claude Code skills 디렉토리로 복사
-cp -r nonstop-agent/skill ~/.claude/skills/nonstop-agent
-
-# 또는 심볼릭 링크 생성 (개발용 권장)
-ln -s $(pwd)/nonstop-agent/skill ~/.claude/skills/nonstop-agent
+# skills 디렉토리를 Claude Code skills 디렉토리로 복사
+cp -r nonstop-agent/skills ~/.claude/skills/nonstop-agent
 ```
 
-설치 후 Claude Code에서 다음과 같이 호출할 수 있습니다:
+설치 후 Claude Code에서 다음과 같이 호출:
 - "롱 러닝 에이전트 만들어줘"
 - "자율 에이전트 생성해줘"
+- "nonstop agent 만들어줘"
 - "Create an autonomous coding agent"
-- "Build a long-running agent harness"
 
 ## 빠른 시작
 
