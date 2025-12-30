@@ -89,21 +89,46 @@ Anthropic의 롱 러닝 에이전트 베스트 프랙티스 기반 아키텍처 
 
 ## Authentication
 
-Claude Agent SDK authenticates via the bundled Claude Code CLI.
+Claude Agent SDK는 OAuth 토큰을 통해 인증합니다.
 
 | Environment Variable | Description |
 |---------------------|-------------|
-| `CLAUDE_CODE_OAUTH_TOKEN` | Claude Code CLI OAuth token |
+| `CLAUDE_CODE_OAUTH_TOKEN` | Claude Code CLI OAuth 토큰 (필수) |
+
+### 토큰 설정 방법
 
 ```bash
-# Login via Claude Code CLI
-claude login
+# 1. OAuth 토큰 발급
+claude setup-token
 
-# Or set token directly
-export CLAUDE_CODE_OAUTH_TOKEN="your-oauth-token"
+# 2. 환경변수에 토큰 추가
+export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"
+
+# 3. 영구 설정 (선택)
+echo 'export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"' >> ~/.zshrc
+source ~/.zshrc
 ```
 
-> **Note**: The SDK uses the bundled CLI for authentication, not direct API calls.
+### 토큰이 없을 경우
+
+토큰이 설정되지 않으면 에이전트 실행 시 다음 에러가 표시됩니다:
+
+```
+============================================================
+⚠️  CLAUDE_CODE_OAUTH_TOKEN 환경변수가 설정되지 않았습니다.
+============================================================
+
+OAuth 토큰을 발급받으세요:
+
+  1. 토큰 발급:
+     $ claude setup-token
+
+  2. 환경변수 설정:
+     $ export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"
+============================================================
+```
+
+> **Note**: SDK는 번들된 Claude Code CLI를 통해 인증합니다.
 > Reference: https://pypi.org/project/claude-agent-sdk/
 
 ## Security Model
