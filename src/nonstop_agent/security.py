@@ -31,6 +31,7 @@ ALLOWED_COMMANDS = {
     "wc",
     "grep",
     "find",
+    "echo",
     # File operations
     "cp",
     "mkdir",
@@ -71,6 +72,28 @@ def add_allowed_command(command: str) -> None:
 def remove_allowed_command(command: str) -> None:
     """Remove a command from the allowlist."""
     ALLOWED_COMMANDS.discard(command)
+
+
+def is_command_allowed(command_string: str) -> bool:
+    """
+    Check if a command string is allowed by the security policy.
+
+    Args:
+        command_string: The full command string to check
+
+    Returns:
+        True if all commands in the string are allowed, False otherwise
+    """
+    commands = extract_commands(command_string)
+
+    if not commands:
+        return False
+
+    for cmd in commands:
+        if cmd not in ALLOWED_COMMANDS:
+            return False
+
+    return True
 
 
 def split_command_segments(command_string: str) -> list[str]:
