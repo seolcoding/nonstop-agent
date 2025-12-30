@@ -51,7 +51,7 @@ You can also install this as a Claude Code Skill for interactive use:
 
 ```bash
 # Clone the repository
-git clone https://github.com/atoye1/nonstop-agent.git
+git clone https://github.com/seolcoding/nonstop-agent.git
 
 # Copy the skill to Claude Code skills directory
 cp -r nonstop-agent/skill ~/.claude/skills/nonstop-agent

@@ -51,7 +51,7 @@ Claude Code에서 대화형으로 사용할 수 있는 Skill로도 설치 가능
 
 ```bash
 # 레포지토리 클론
-git clone https://github.com/atoye1/nonstop-agent.git
+git clone https://github.com/seolcoding/nonstop-agent.git
 
 # skill 디렉토리를 Claude Code skills 디렉토리로 복사
 cp -r nonstop-agent/skill ~/.claude/skills/nonstop-agent
