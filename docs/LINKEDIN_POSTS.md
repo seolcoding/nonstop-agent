@@ -9,10 +9,8 @@
 ```
 🎄 클로드 코드 2배 이벤트, 잘 참여하고 계신가요?
 
-저는 솔직히... 못 하고 있었습니다 😅
-
 토큰은 2배인데 제가 프롬프트를 안 치면 의미가 없더라고요.
-밥 먹을 때, 회의할 때, 자는 동안... 클로드는 그냥 대기 중.
+밥 먹을 때, 자는 동안... 클로드는 그냥 대기 중.
 
 "이거 자동으로 계속 돌릴 수 없나?"
 
@@ -21,19 +19,15 @@
 📚 참고한 자료들:
 • Anthropic 블로그: "Effective Harnesses for Long-Running Agents"
 • 공식 레포: claude-quickstarts/autonomous-coding
-• AI Spark Up: "AI 에이전트가 며칠 걸리는 작업을 혼자 완수하는 법"
-
-이걸 Claude Code 스킬로 포팅했습니다.
 
 ---
 
-🔥 Nonstop Agent란?
+🔥 Nonstop Agent를 소개합니다.
 
-Claude가 24시간 혼자 코딩하게 만드는 자율 에이전트 프레임워크입니다.
+Claude가 24시간 혼자 코딩하게 만드는 자율 에이전트 Claude Code Plugin입니다.
 
 • 세션 끊어져도 자동 재개
 • Git + progress 파일로 상태 완벽 보존
-• 다층 보안 (샌드박스 + 허용목록)
 
 ⚙️ 작동 원리:
 1️⃣ app_spec.txt에 요구사항 작성
@@ -43,15 +37,15 @@ Claude가 24시간 혼자 코딩하게 만드는 자율 에이전트 프레임�
 
 ---
 
-📦 설치 (1분):
+📦 설치 (30초):
 
-# 1. 스킬 설치
-git clone https://github.com/seolcoding/nonstop-agent
-cp -r nonstop-agent/skills ~/.claude/skills/
+Claude Code에서 아래 명령어 실행:
 
-# 2. OAuth 토큰 설정 (필수!)
+/plugin marketplace add seolcoding/nonstop-agent
+/plugin install nonstop-agent@seolcoding/nonstop-agent
+
+# OAuth 토큰 설정 (필수!)
 claude setup-token
-# 발급된 토큰을 환경변수에 추가
 export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"
 
 🚀 사용법:
@@ -61,21 +55,21 @@ Claude Code 열고 이렇게 말하세요:
 → "롱 러닝 에이전트로 Todo 앱 개발해줘"
 → "자율 에이전트 실행해줘"
 
-그러면 스킬이 자동으로:
+그러면 플러그인이 자동으로:
 1. 프로젝트 폴더 생성
 2. app_spec.txt 기반으로 feature_list.json 작성
 3. 기능 구현 시작
-4. 끝날 때까지 계속 돌아감
+4. 제시해준 명령어 실행하면 끝날 때까지 계속 돌아감
 
 ---
 
 퇴근할 때 실행 → 아침에 MVP 완성
-(코드 리뷰는 필수입니다 ㅋㅋ Claude도 실수함)
+(코드 리뷰는 필수입니다)
 
 2배 이벤트 12/31까지니까 한번 써보세요!
 피드백, PR 언제나 환영입니다 🙌
 
-👉 github.com/seolcoding/nonstop-agent
+👉 https://github.com/seolcoding/nonstop-agent
 
 #ClaudeAI #AI코딩 #자율에이전트 #개발자 #오픈소스 #Anthropic #생산성
 ```
