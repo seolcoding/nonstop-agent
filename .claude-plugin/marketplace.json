@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "nonstop-agent",
-      "source": ".",
+      "source": "./",
       "description": "Generate 24/7 autonomous coding agents with Anthropic best practices. Supports Korean and English.",
       "version": "1.0.0",
       "author": {
