@@ -1,0 +1,46 @@
+# Application Specification
+
+[Your application specification goes here]
+
+---
+
+## Technical Requirements
+
+### Technology Stack
+[Define your preferred stack: Python/TypeScript, frameworks, etc.]
+
+### Architecture
+[Describe the architecture: monolith, microservices, etc.]
+
+### Features
+[List all features to be implemented]
+
+### Non-Functional Requirements
+- Performance: [requirements]
+- Security: [requirements]
+- Accessibility: [requirements]
+
+---
+
+## Development Guidelines
+
+1. Follow existing code patterns in the codebase
+2. Write tests for all new features
+3. Document complex logic with comments
+4. Use meaningful variable and function names
+5. Keep functions small and focused
+
+---
+
+## UI/UX Guidelines
+
+1. Consistent design language
+2. Responsive design (mobile-first)
+3. Accessible (WCAG 2.1 AA)
+4. Clear error messages
+5. Loading states for async operations
+
+---
+
+**Note:** This spec is the source of truth. All features in feature_list.json
+should trace back to requirements in this document.
