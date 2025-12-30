@@ -27,28 +27,39 @@
 
 ---
 
-🔥 일해라 클로드! (Nonstop Agent)
+🔥 Nonstop Agent란?
+
+Claude가 24시간 혼자 코딩하게 만드는 자율 에이전트 프레임워크입니다.
+
+• 세션 끊어져도 자동 재개
+• Git + progress 파일로 상태 완벽 보존
+• 다층 보안 (샌드박스 + 허용목록)
 
 ⚙️ 작동 원리:
-1️⃣ app_spec.txt 작성 (요구사항)
-2️⃣ Initializer Agent가 feature_list.json 생성
-3️⃣ Coding Agent가 기능 하나씩 구현
-4️⃣ 세션 끊어져도 Git + progress로 상태 저장
-5️⃣ 자동 재개 → 무한 반복
-
-🛡️ 보안 (Defense-in-Depth):
-• OS 샌드박스
-• 프로젝트 폴더만 접근
-• rm, curl 같은 위험 명령어 차단
+1️⃣ app_spec.txt에 요구사항 작성
+2️⃣ Initializer Agent가 프로젝트 설계 + feature_list.json 생성
+3️⃣ Coding Agent가 기능을 하나씩 구현
+4️⃣ 완료되면 다음 기능으로 → 무한 반복
 
 ---
 
 📦 설치 (30초):
+
 git clone https://github.com/seolcoding/nonstop-agent
 cp -r nonstop-agent/skills ~/.claude/skills/
 
-🚀 사용:
-Claude Code에서 "롱 러닝 에이전트 만들어줘"
+🚀 사용법:
+
+Claude Code 열고 이렇게 말하세요:
+→ "nonstop agent 만들어줘"
+→ "롱 러닝 에이전트로 Todo 앱 개발해줘"
+→ "자율 에이전트 실행해줘"
+
+그러면 스킬이 자동으로:
+1. 프로젝트 폴더 생성
+2. app_spec.txt 기반으로 feature_list.json 작성
+3. 기능 구현 시작
+4. 끝날 때까지 계속 돌아감
 
 ---
 
