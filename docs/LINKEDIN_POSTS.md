@@ -2,118 +2,340 @@
 
 ---
 
-## 한국어 버전
+## 한국어 버전 (메인 포스팅)
 
-### 1. 짧은 버전 (Short - 280자 이내)
+### 🏆 메인 추천 포스팅
 
 ```
-잠자는 동안 코딩이 완료된다면?
+🎄 클로드 코드 2배 이벤트, 잘 참여하고 계신가요?
 
-Nonstop Agent가 24시간 쉬지 않고 코딩합니다.
-- 세션이 끊어져도 자동 재개
-- 다층 보안으로 안전하게
-- Anthropic 베스트 프랙티스 기반
+저는 솔직히... 못 하고 있었습니다 😅
 
-아침에 일어나면 새 기능이 완성되어 있습니다.
+토큰은 2배인데 제가 프롬프트를 안 치면 의미가 없더라고요.
+밥 먹을 때, 회의할 때, 자는 동안... 클로드는 그냥 대기 중.
 
-github.com/seolcoding/nonstop-agent
+"이거 자동으로 계속 돌릴 수 없나?"
 
-#AI코딩 #자율에이전트 #ClaudeAI #개발자생산성 #자동화
+찾아보니 Anthropic이 이미 해결책을 내놨습니다.
+
+📚 참고한 자료들:
+• Anthropic 블로그: "Effective Harnesses for Long-Running Agents"
+• 공식 레포: claude-quickstarts/autonomous-coding
+• AI Spark Up: "AI 에이전트가 며칠 걸리는 작업을 혼자 완수하는 법"
+
+이걸 Claude Code 스킬로 포팅했습니다.
+
+---
+
+🔥 일해라 클로드! (Nonstop Agent)
+
+⚙️ 작동 원리:
+1️⃣ app_spec.txt 작성 (요구사항)
+2️⃣ Initializer Agent가 feature_list.json 생성
+3️⃣ Coding Agent가 기능 하나씩 구현
+4️⃣ 세션 끊어져도 Git + progress로 상태 저장
+5️⃣ 자동 재개 → 무한 반복
+
+🛡️ 보안 (Defense-in-Depth):
+• OS 샌드박스
+• 프로젝트 폴더만 접근
+• rm, curl 같은 위험 명령어 차단
+
+---
+
+📦 설치 (30초):
+git clone https://github.com/seolcoding/nonstop-agent
+cp -r nonstop-agent/skills ~/.claude/skills/
+
+🚀 사용:
+Claude Code에서 "롱 러닝 에이전트 만들어줘"
+
+---
+
+퇴근할 때 실행 → 아침에 MVP 완성
+(코드 리뷰는 필수입니다 ㅋㅋ Claude도 실수함)
+
+2배 이벤트 12/31까지니까 한번 써보세요!
+피드백, PR 언제나 환영입니다 🙌
+
+👉 github.com/seolcoding/nonstop-agent
+
+#ClaudeAI #AI코딩 #자율에이전트 #개발자 #오픈소스 #Anthropic #생산성
 ```
 
 ---
 
-### 2. 중간 버전 (Medium - 500자 이내)
+### 짧은 버전 (Twitter/X용)
 
 ```
-"퇴근할 때 에이전트 실행하고, 아침에 출근하면 기능이 완성되어 있습니다."
+🔥 일해라 클로드!
 
-Nonstop Agent를 소개합니다.
+클로드 2배 이벤트인데 내가 병목이라 토큰을 못 쓰는 게 아쉬웠음
 
-Claude 기반 자율 코딩 에이전트로, 여러분이 자는 동안에도 쉬지 않고 개발합니다.
-
-왜 특별한가요?
-
-1. 24/7 연속 작업
-   - 세션이 끊어져도 자동으로 재개
-   - git + progress 파일로 상태 완벽 보존
-
-2. 다층 보안
-   - OS 샌드박스
-   - 파일시스템 제한
-   - 명령어 허용목록
-
-3. Anthropic 공식 가이드라인 기반
-   - 2-Agent 패턴 (Initializer + Coding)
-   - 검증된 베스트 프랙티스
-
-설치 한 줄이면 시작:
-/plugin marketplace add seolcoding/nonstop-agent
-
-개발자의 시간은 소중합니다.
-반복 작업은 에이전트에게 맡기세요.
+→ Anthropic 공식 가이드 보고 자동화 스킬 만듦
+→ 퇴근할 때 실행하면 아침에 기능 완성
 
 github.com/seolcoding/nonstop-agent
 
-#AI개발 #ClaudeAI #자율에이전트 #DevOps #개발자도구 #프로그래밍자동화 #스타트업 #생산성향상
+#ClaudeAI #자율에이전트
 ```
 
 ---
 
-### 3. 상세 버전 (Long - 1000자 이내)
+### 버전 2: 밈 스타일 🤣
 
 ```
-"잠자는 동안 코딩" - 이제 현실이 됩니다.
+클로드: "뭐 도와드릴까요?"
+나: "..."
+클로드: "..."
+나: "..."
 
-지난 몇 달간 개발한 Nonstop Agent를 오픈소스로 공개합니다.
+[3시간 후]
 
-문제 인식:
-AI 코딩 어시스턴트는 강력하지만, 세션이 끊기면 처음부터 다시 시작해야 했습니다. 대규모 프로젝트에서는 이 비효율이 누적됩니다.
+나: "아 맞다 클로드 있었지"
 
-해결책:
-Nonstop Agent는 Anthropic의 "Long-Running Agent" 베스트 프랙티스를 구현합니다.
+---
 
-핵심 특징:
+이게 저였습니다.
 
-1. 2-Agent 패턴
-   - Initializer Agent: 첫 세션에서 프로젝트 구조 설정
-   - Coding Agent: 이후 세션에서 기능 구현
+클로드 Pro 결제해놓고 제가 병목이라 토큰 낭비 중... 💸
 
-2. 완벽한 상태 지속성
-   - feature_list.json: 기능 완료 추적
-   - claude-progress.txt: 세션별 진행 기록
-   - Git: 모든 코드 변경사항 버전 관리
+그래서 만들었습니다.
+🔥 Nonstop Agent - 24시간 알아서 코딩하는 스킬
 
-3. 다층 보안 (Defense-in-Depth)
-   - 계층 1: OS 수준 샌드박스
-   - 계층 2: 프로젝트 디렉토리로 제한
-   - 계층 3: 허용된 명령어만 실행
+퇴근할 때 "Todo 앱 만들어줘" 하고 실행
+→ 아침에 출근하면 MVP 완성
 
-4. 세션 재개
-   --resume 옵션으로 언제든 이어서 작업
-
-사용 시나리오:
-- 퇴근 전 app_spec.txt 작성
-- 에이전트 실행하고 퇴근
-- 아침에 출근하면 MVP 완성
-
-기술 스택:
-- Claude Opus 4.5
-- Claude Agent SDK
-- Python / TypeScript 지원
-
-시작 방법:
-1. /plugin marketplace add seolcoding/nonstop-agent
-2. app_spec.txt 작성
-3. 에이전트 실행
-4. 결과 확인
-
-개발자 여러분의 피드백을 기다립니다.
-Star와 Issue 환영합니다!
+Anthropic 공식 가이드라인 기반이라 안정적!
 
 github.com/seolcoding/nonstop-agent
 
-#AI #MachineLearning #ClaudeAI #자율에이전트 #개발자 #프로그래밍 #오픈소스 #스타트업 #DevTools #자동화 #생산성 #코딩 #SoftwareEngineering #Anthropic
+#ClaudeAI #개발자일상 #자동화 #야근탈출
+```
+
+---
+
+### 버전 3: 문제-해결 스타일 💡
+
+```
+❌ 문제:
+"Claude Pro 결제했는데 내가 안 쓰면 의미없잖아..."
+
+❌ 더 큰 문제:
+"세션 끊기면 다시 처음부터 설명해야 함"
+
+❌ 진짜 문제:
+"대규모 프로젝트는 하루에 못 끝냄"
+
+---
+
+✅ 해결책: Nonstop Agent
+
+Anthropic이 공식 블로그에서 해결책 공개함:
+→ "Effective Harnesses for Long-Running Agents"
+
+핵심 아이디어:
+1️⃣ Initializer Agent: 프로젝트 설계
+2️⃣ Coding Agent: 기능 구현
+3️⃣ Git + JSON으로 상태 저장
+4️⃣ 세션 끊어져도 자동 재개
+
+이거 Claude Code 스킬로 포팅했습니다.
+
+📦 github.com/seolcoding/nonstop-agent
+
+지금 클로드 2배 이벤트니까 써보세요!
+(12/25~31 홀리데이 프로모션)
+
+#ClaudeAI #Anthropic #개발자 #생산성
+```
+
+---
+
+### 버전 4: 스토리텔링 📖
+
+```
+어제 퇴근할 때 이랬습니다.
+
+"클로드야, 이 스펙대로 Todo 앱 만들어줘"
+[실행]
+[퇴근]
+[맥주 한잔]
+[잠]
+
+오늘 아침 출근해서 봤더니...
+
+✅ FastAPI 백엔드 완성
+✅ SQLite DB 연동
+✅ 기본 CRUD API
+✅ 테스트 코드까지
+
+???
+
+이게 가능했던 이유:
+→ Anthropic 공식 "Long-Running Agent" 가이드라인
+→ 2-Agent 패턴 (설계 + 구현 분리)
+→ Git으로 상태 저장해서 세션 끊어져도 이어서 작업
+
+오픈소스로 공개합니다.
+
+github.com/seolcoding/nonstop-agent
+
+물론 코드 리뷰는 필수입니다 ㅋㅋ
+(Claude도 실수함)
+
+#ClaudeAI #자율에이전트 #오픈소스 #개발자
+```
+
+---
+
+### 버전 5: 기술 딥다이브 🔧
+
+```
+🔧 Claude Code로 24시간 자율 코딩 에이전트 만들기
+
+TL;DR: Anthropic 공식 가이드 → Claude Code 스킬로 포팅
+
+---
+
+📚 레퍼런스:
+• anthropic.com/engineering/effective-harnesses-for-long-running-agents
+• github.com/anthropics/claude-quickstarts/autonomous-coding
+• aisparkup.com/posts/7101
+
+---
+
+⚙️ 아키텍처:
+
+Session 1 (Initializer):
+app_spec.txt 읽기 → feature_list.json 생성 → 프로젝트 구조 설정
+
+Session 2, 3, 4... (Coding):
+feature_list.json 읽기 → 미완료 기능 선택 → 구현 → 테스트 → passes: true
+
+상태 저장:
+• feature_list.json (기능 체크리스트)
+• claude-progress.txt (세션 로그)
+• Git commits (코드 변경사항)
+
+---
+
+🛡️ 보안 (Defense-in-Depth):
+1. OS Sandbox
+2. cwd 제한 (프로젝트 폴더만)
+3. Bash 허용목록 (rm, curl 차단)
+
+---
+
+📦 설치:
+git clone https://github.com/seolcoding/nonstop-agent
+cp -r skills ~/.claude/skills/
+
+🚀 실행:
+"롱 러닝 에이전트 만들어줘"
+
+---
+
+Claude Agent SDK 0.1.18 기반
+MIT License
+
+github.com/seolcoding/nonstop-agent
+
+#ClaudeAgentSDK #Python #오픈소스 #Anthropic
+```
+
+---
+
+### 버전 6: 숏폼 (Twitter/Thread용) 🐦
+
+```
+🧵 Claude 24시간 코딩시키는 법 (1/5)
+
+클로드 2배 이벤트인데...
+내가 안 쓰면 의미없잖아요?
+
+자동으로 계속 돌리는 방법 찾아봤습니다.
+👇
+```
+
+```
+(2/5)
+Anthropic이 이미 해결책 공개함:
+
+"Effective Harnesses for Long-Running Agents"
+
+핵심:
+• 2개 에이전트 (설계 + 구현)
+• Git으로 상태 저장
+• 세션 끊어져도 자동 재개
+```
+
+```
+(3/5)
+이걸 Claude Code 스킬로 만들었습니다.
+
+작동 방식:
+1. app_spec.txt 작성
+2. 스킬 실행
+3. 알아서 feature_list.json 생성
+4. 기능 하나씩 구현
+5. 무한 반복
+```
+
+```
+(4/5)
+보안도 신경 씀:
+✅ OS 샌드박스
+✅ 프로젝트 폴더만 접근
+✅ 위험한 명령어 차단
+
+실수해도 피해 최소화!
+```
+
+```
+(5/5)
+📦 github.com/seolcoding/nonstop-agent
+
+MIT 라이선스
+피드백 환영!
+
+홀리데이 이벤트 끝나기 전에 써보세요 🎄
+(12/31까지)
+
+#ClaudeAI
+```
+
+---
+
+### 버전 7: 직장인 공감 😅
+
+```
+월요일 아침 회의:
+"이번 주까지 이 기능 가능할까요?"
+"네... (불가능)"
+
+---
+
+금요일 퇴근 전:
+"클로드야 이거 만들어줘"
+[Nonstop Agent 실행]
+
+---
+
+월요일 아침:
+"다 됐습니다 :)"
+"???"
+
+---
+
+비결: github.com/seolcoding/nonstop-agent
+
+Anthropic 공식 가이드라인 기반
+24시간 자율 코딩 에이전트
+
+(코드 리뷰는 해야 함 주의)
+
+#개발자 #야근탈출 #ClaudeAI #자동화
 ```
 
 ---
