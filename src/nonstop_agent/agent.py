@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Optional
 
 from claude_agent_sdk import (
-    ClaudeSDKClient,
+    query,
     AssistantMessage,
     TextBlock,
     ToolUseBlock,
@@ -23,7 +23,7 @@ from claude_agent_sdk import (
     ResultMessage,
 )
 
-from .client import create_client
+from .client import create_options
 from .progress import print_session_header, print_progress_summary, save_session_id
 from .prompts import (
     get_initializer_prompt,
@@ -52,17 +52,21 @@ def load_last_session_id(project_dir: Path) -> Optional[str]:
 
 
 async def run_agent_session(
-    client: ClaudeSDKClient,
-    message: str,
+    prompt: str,
     project_dir: Path,
+    model: str,
+    resume_session_id: Optional[str] = None,
+    system_prompt: Optional[str] = None,
 ) -> tuple[str, str, Optional[str]]:
     """
     Run a single agent session using Claude Agent SDK.
 
     Args:
-        client: Claude SDK client
-        message: The prompt to send
+        prompt: The prompt to send
         project_dir: Project directory path
+        model: Claude model to use
+        resume_session_id: Optional session ID to resume
+        system_prompt: Optional custom system prompt
 
     Returns:
         (status, response_text, session_id) where status is:
@@ -71,22 +75,18 @@ async def run_agent_session(
     """
     print("Sending prompt to Claude Agent SDK...\n")
 
+    options = create_options(
+        project_dir=project_dir,
+        model=model,
+        resume_session_id=resume_session_id,
+        system_prompt=system_prompt,
+    )
+
     session_id = None
+    response_text = ""
 
     try:
-        await client.query(message)
-
-        response_text = ""
-        async for msg in client.receive_response():
-            msg_type = type(msg).__name__
-
-            # Capture session ID from init message
-            if hasattr(msg, 'subtype') and msg.subtype == 'init':
-                if hasattr(msg, 'session_id'):
-                    session_id = msg.session_id
-                elif hasattr(msg, 'data'):
-                    session_id = msg.data.get('session_id')
-
+        async for msg in query(prompt=prompt, options=options):
             # Handle AssistantMessage (text and tool use)
             if isinstance(msg, AssistantMessage):
                 for block in msg.content:
@@ -103,8 +103,8 @@ async def run_agent_session(
                                 print(f"   Input: {input_str}", flush=True)
 
             # Handle tool results
-            elif hasattr(msg, 'content'):
-                for block in msg.content if isinstance(msg.content, list) else []:
+            elif hasattr(msg, 'content') and isinstance(msg.content, list):
+                for block in msg.content:
                     if isinstance(block, ToolResultBlock):
                         is_error = getattr(block, "is_error", False)
                         result_content = getattr(block, "content", "")
@@ -117,10 +117,12 @@ async def run_agent_session(
                         else:
                             print("   [Done]", flush=True)
 
-            # Handle result message
+            # Handle result message (final message with session info)
             if isinstance(msg, ResultMessage):
                 if hasattr(msg, 'session_id'):
                     session_id = msg.session_id
+                if hasattr(msg, 'total_cost_usd'):
+                    print(f"\nSession cost: ${msg.total_cost_usd:.4f}")
 
         print("\n" + "-" * 70 + "\n")
 
@@ -227,14 +229,6 @@ async def run_autonomous_agent(
 
         print_session_header(iteration, prompt_type)
 
-        # Create client (with optional session resumption)
-        client = create_client(
-            project_dir,
-            model,
-            resume_session_id=current_session_id if iteration == 1 else None,
-            system_prompt=system_prompt,
-        )
-
         # Choose prompt
         if prompt_type == "analysis":
             prompt = get_existing_project_prompt()
@@ -243,12 +237,17 @@ async def run_autonomous_agent(
         else:
             prompt = get_coding_prompt()
 
-        async with client:
-            status, response, session_id = await run_agent_session(
-                client, prompt, project_dir
-            )
-            if session_id:
-                current_session_id = session_id
+        # Run the session
+        status, response, session_id = await run_agent_session(
+            prompt=prompt,
+            project_dir=project_dir,
+            model=model,
+            resume_session_id=current_session_id if iteration == 1 else None,
+            system_prompt=system_prompt,
+        )
+
+        if session_id:
+            current_session_id = session_id
 
         if status == "continue":
             print(f"\nAgent will auto-continue in {AUTO_CONTINUE_DELAY_SECONDS}s...")

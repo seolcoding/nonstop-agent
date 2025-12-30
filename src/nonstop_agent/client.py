@@ -2,16 +2,15 @@
 Claude Agent SDK Client Configuration
 ======================================
 
-Functions for creating and configuring the Claude Agent SDK client.
+Functions for creating and configuring the Claude Agent SDK options.
 
 Reference: https://platform.claude.com/docs/en/agent-sdk/python
 """
 
-import os
 from pathlib import Path
 from typing import Optional
 
-from claude_agent_sdk import ClaudeAgentOptions, ClaudeSDKClient, HookMatcher
+from claude_agent_sdk import ClaudeAgentOptions, HookMatcher
 
 from .security import bash_security_hook
 
@@ -22,16 +21,16 @@ You work continuously across multiple sessions to complete complex projects.
 You follow best practices and write production-quality code."""
 
 
-def create_client(
+def create_options(
     project_dir: Path,
     model: str,
     resume_session_id: Optional[str] = None,
     system_prompt: Optional[str] = None,
     allowed_tools: Optional[list[str]] = None,
     mcp_servers: Optional[dict] = None,
-) -> ClaudeSDKClient:
+) -> ClaudeAgentOptions:
     """
-    Create a Claude Agent SDK client with multi-layered security.
+    Create Claude Agent SDK options with multi-layered security.
 
     Args:
         project_dir: Directory for the project
@@ -42,7 +41,7 @@ def create_client(
         mcp_servers: Optional MCP server configuration
 
     Returns:
-        Configured ClaudeSDKClient
+        Configured ClaudeAgentOptions
 
     Security layers (defense in depth):
     1. Sandbox - OS-level bash command isolation
@@ -111,4 +110,4 @@ def create_client(
         },
     )
 
-    return ClaudeSDKClient(options=options)
+    return options

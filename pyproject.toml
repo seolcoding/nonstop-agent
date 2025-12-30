@@ -43,10 +43,10 @@ dev = [
 nonstop-agent = "nonstop_agent.main:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/nonstop-agent"
-Documentation = "https://github.com/yourusername/nonstop-agent#readme"
-Repository = "https://github.com/yourusername/nonstop-agent.git"
-Issues = "https://github.com/yourusername/nonstop-agent/issues"
+Homepage = "https://github.com/seolcoding/nonstop-agent"
+Documentation = "https://github.com/seolcoding/nonstop-agent#readme"
+Repository = "https://github.com/seolcoding/nonstop-agent.git"
+Issues = "https://github.com/seolcoding/nonstop-agent/issues"
 
 [build-system]
 requires = ["hatchling"]

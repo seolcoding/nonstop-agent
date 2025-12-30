@@ -8,11 +8,11 @@ across multiple sessions, inspired by Anthropic's best practices.
 __version__ = "0.1.0"
 
 from .agent import run_autonomous_agent
-from .client import create_client
+from .client import create_options
 from .security import bash_security_hook
 
 __all__ = [
     "run_autonomous_agent",
-    "create_client",
+    "create_options",
     "bash_security_hook",
 ]
