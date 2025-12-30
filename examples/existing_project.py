@@ -21,7 +21,7 @@ async def main():
     # Run with analyze-first mode
     await run_autonomous_agent(
         project_dir=project_dir,
-        model="claude-sonnet-4-5-20250929",
+        model="claude-opus-4-5-20251101",
         max_iterations=10,
         analyze_first=True,  # Analyze existing codebase first
         resume=False,
@@ -35,7 +35,7 @@ async def resume_session():
 
     await run_autonomous_agent(
         project_dir=project_dir,
-        model="claude-sonnet-4-5-20250929",
+        model="claude-opus-4-5-20251101",
         max_iterations=10,
         analyze_first=False,
         resume=True,  # Resume from last session

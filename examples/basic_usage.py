@@ -21,7 +21,7 @@ async def main():
     # Run the agent
     await run_autonomous_agent(
         project_dir=project_dir,
-        model="claude-sonnet-4-5-20250929",
+        model="claude-opus-4-5-20251101",
         max_iterations=5,  # Limit iterations for demo
         analyze_first=False,  # New project
         resume=False,
