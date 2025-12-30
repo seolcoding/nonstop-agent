@@ -265,3 +265,32 @@ github.com/seolcoding/nonstop-agent
 2. **첫 댓글**: 설치 링크와 간단한 튜토리얼 추가
 3. **태그**: 관련 개발자 커뮤니티 리더 태그
 4. **CTA**: "Star on GitHub" 또는 "Try it now" 명확히
+
+---
+
+## 영감 및 참고 자료 (References)
+
+마케팅 문구에 포함할 수 있는 신뢰성 있는 참고 자료들:
+
+### Anthropic 공식
+
+- **[Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)** - Anthropic 엔지니어링 블로그
+- **[Anthropic Claude Quickstarts](https://github.com/anthropics/claude-quickstarts/tree/main/autonomous-coding)** - 공식 레퍼런스 구현
+- **[Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview)** - 공식 SDK 문서
+
+### 커뮤니티 자료
+
+- **[AI Spark Up: AI 에이전트가 며칠 걸리는 작업을 혼자 완수하는 법](https://aisparkup.com/posts/7101)** - 한국어 설명
+- **[YouTube Tutorial 1](https://www.youtube.com/watch?v=YW09hhnVqNM)** - 자율 에이전트 개념
+- **[YouTube Tutorial 2](https://www.youtube.com/watch?v=o-pMCoVPN_k)** - 롱 러닝 에이전트 데모
+
+### 추천 문구
+
+```
+"Anthropic 공식 가이드라인을 기반으로 제작되었습니다."
+"Built on Anthropic's official engineering best practices."
+
+참고:
+- anthropic.com/engineering/effective-harnesses-for-long-running-agents
+- aisparkup.com/posts/7101
+```

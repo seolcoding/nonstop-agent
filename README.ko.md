@@ -20,6 +20,8 @@ Nonstop Agent는 복잡한 프로젝트에서 지속적으로 작업할 수 있�
 
 이 프로젝트는 다음을 기반으로 제작되었습니다:
 
+### Anthropic 공식 자료
+
 1. **[Anthropic Engineering: Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)**
    - 2-Agent 패턴 (Initializer + Coding)
    - 심층 방어 보안 모델
@@ -32,6 +34,18 @@ Nonstop Agent는 복잡한 프로젝트에서 지속적으로 작업할 수 있�
 3. **[Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview)**
    - Claude 기반 에이전트 구축을 위한 공식 SDK
    - 훅, 권한, 세션 관리
+
+### 커뮤니티 자료
+
+4. **[AI 에이전트가 며칠 걸리는 작업을 혼자 완수하는 법 (AI Spark Up)](https://aisparkup.com/posts/7101)**
+   - Anthropic 2-agent 솔루션 한국어 설명
+   - 컨텍스트 윈도우 관리 실용적 인사이트
+
+5. **[YouTube: Claude Code 자율 에이전트 튜토리얼](https://www.youtube.com/watch?v=YW09hhnVqNM)**
+   - 자율 에이전트 개념 영상 설명
+
+6. **[YouTube: 롱 러닝 에이전트 구현](https://www.youtube.com/watch?v=o-pMCoVPN_k)**
+   - 멀티 세션 에이전트 실전 데모
 
 ## 설치
 

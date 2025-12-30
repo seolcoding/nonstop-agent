@@ -20,6 +20,8 @@ Nonstop Agent is a production-ready framework for running Claude-powered autonom
 
 This project is inspired by and built upon:
 
+### Official Anthropic Resources
+
 1. **[Anthropic Engineering: Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)**
    - 2-Agent pattern (Initializer + Coding)
    - Defense-in-depth security model
@@ -32,6 +34,18 @@ This project is inspired by and built upon:
 3. **[Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview)**
    - Official SDK for building Claude-powered agents
    - Hooks, permissions, and session management
+
+### Community Resources
+
+4. **[AI 에이전트가 며칠 걸리는 작업을 혼자 완수하는 법 (AI Spark Up)](https://aisparkup.com/posts/7101)**
+   - Korean explanation of Anthropic's 2-agent solution
+   - Practical insights on context window management
+
+5. **[YouTube: Claude Code Autonomous Agent Tutorial](https://www.youtube.com/watch?v=YW09hhnVqNM)**
+   - Video walkthrough of autonomous agent concepts
+
+6. **[YouTube: Long-Running Agent Implementation](https://www.youtube.com/watch?v=o-pMCoVPN_k)**
+   - Practical demonstration of multi-session agents
 
 ## Installation
 
