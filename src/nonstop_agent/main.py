@@ -92,10 +92,24 @@ def main() -> None:
     # Check for authentication
     oauth_token = os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")
     if not oauth_token:
-        print("Note: CLAUDE_CODE_OAUTH_TOKEN not set.")
-        print("  The SDK will use existing Claude Code CLI authentication.")
-        print("  If authentication fails, run: claude login")
+        print("=" * 60)
+        print("⚠️  CLAUDE_CODE_OAUTH_TOKEN 환경변수가 설정되지 않았습니다.")
+        print("=" * 60)
         print()
+        print("OAuth 토큰을 발급받으세요:")
+        print()
+        print("  1. 토큰 발급:")
+        print("     $ claude setup-token")
+        print()
+        print("  2. 환경변수 설정:")
+        print('     $ export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"')
+        print()
+        print("  3. 영구 설정 (선택):")
+        print('     $ echo \'export CLAUDE_CODE_OAUTH_TOKEN="your-token"\' >> ~/.zshrc')
+        print()
+        print("=" * 60)
+        print()
+        return
 
     # Run the agent
     try:

@@ -28,11 +28,14 @@ cp -r nonstop-agent/skills ~/.claude/skills/nonstop-agent
 ## 2단계: 인증 설정 (1분)
 
 ```bash
-# Claude Code CLI로 로그인 (가장 쉬운 방법)
-claude login
+# OAuth 토큰 발급
+claude setup-token
 
-# 또는 OAuth 토큰 직접 설정
-export CLAUDE_CODE_OAUTH_TOKEN="your-oauth-token"
+# 발급된 토큰을 환경변수에 추가
+export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"
+
+# 영구 설정하려면 .zshrc 또는 .bashrc에 추가
+echo 'export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"' >> ~/.zshrc
 ```
 
 ---

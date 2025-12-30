@@ -91,14 +91,17 @@ cp -r nonstop-agent/skills ~/.claude/skills/nonstop-agent
 
 ### 1. 인증
 
-에이전트는 Claude Code CLI를 통해 인증합니다:
+에이전트는 OAuth 토큰이 필요합니다:
 
 ```bash
-# Claude Code CLI로 로그인
-claude login
+# OAuth 토큰 발급
+claude setup-token
 
-# 또는 OAuth 토큰 직접 설정
-export CLAUDE_CODE_OAUTH_TOKEN="your-oauth-token"
+# 환경변수에 토큰 추가
+export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"
+
+# 영구 설정하려면 쉘 프로필에 추가
+echo 'export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"' >> ~/.zshrc
 ```
 
 ### 2. 에이전트 실행

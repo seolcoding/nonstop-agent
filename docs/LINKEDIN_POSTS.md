@@ -43,10 +43,16 @@ Claude가 24시간 혼자 코딩하게 만드는 자율 에이전트 프레임�
 
 ---
 
-📦 설치 (30초):
+📦 설치 (1분):
 
+# 1. 스킬 설치
 git clone https://github.com/seolcoding/nonstop-agent
 cp -r nonstop-agent/skills ~/.claude/skills/
+
+# 2. OAuth 토큰 설정 (필수!)
+claude setup-token
+# 발급된 토큰을 환경변수에 추가
+export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"
 
 🚀 사용법:
 

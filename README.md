@@ -91,14 +91,17 @@ After installation, invoke the skill in Claude Code:
 
 ### 1. Authentication
 
-The agent uses Claude Code CLI for authentication:
+The agent requires an OAuth token for Claude Code CLI:
 
 ```bash
-# Login via Claude Code CLI
-claude login
+# Generate OAuth token
+claude setup-token
 
-# Or set OAuth token directly
-export CLAUDE_CODE_OAUTH_TOKEN="your-oauth-token"
+# Add the token to your environment
+export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"
+
+# For permanent setup, add to your shell profile
+echo 'export CLAUDE_CODE_OAUTH_TOKEN="your-token-here"' >> ~/.zshrc
 ```
 
 ### 2. Run the Agent
