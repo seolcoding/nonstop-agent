@@ -7,10 +7,7 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/seolcoding/nonstop-agent",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seolcoding/nonstop-agent.git"
-  },
+  "repository": "https://github.com/seolcoding/nonstop-agent",
   "keywords": [
     "autonomous-agent",
     "long-running",
